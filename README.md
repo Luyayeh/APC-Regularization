@@ -14,20 +14,36 @@ Voxceleb1: spkid-train, spkid-dev
 # Preprocessing
 Generate log Mel spectrograms by Kaldi. The dataset were all preprocessed and granded by Dr. Han Tang, so please reach him out for preprosedd dataset. 
 # APC 
-Train APC-baseline: run apc/train-epoch.sh  
-Train APC-baseline in decay: run apc/train-decay.sh 
-Run apc/train-epoch-AWGN.sh to train APC-AWGN
-Run apc/train-decay-AWGN.sh to train APC-AWGN in decay
-Run apc/train-epoch-dropout.sh to train APC-dropout
-Run apc/train-decay-dropout.sh to train APC-dropout in decay
-Run apc/train-epoch-AWGN.sh to train APC-AWGN
-Run apc/train-decay-AWGN.sh to train APC-AWGN in decay
-Run apc/test.sh to test APC 
+Training configurations: apc/exp/apc-layer3/train.conf
+Testing configurations: apc/exp/apc-layer3/test.conf
 
+Train APC-baseline: run apc/train-epoch.sh
+Train APC-baseline in decay: run apc/train-decay.sh
 Train APC-AWGN: run apc/train-epoch-AWGN.sh
 Train APC-AWGN in decay: run apc/train-decay-AWGN.sh
 Train APC-dropout: run apc/train-epoch-dropout.sh
 Train APC-dropout in decay: run apc/train-decay-dropout.sh
+Train APC-AWGN-dropout: run apc/train-epoch-awgn+dropout.sh
+Train APC-AWGN-dropout in decay: run apc/train-decay-awgn+dropout.sh
 Test APC: run apc/test.sh
-Train APC-baseline: run apc/train-epoch.sh
-Train APC-baseline in decay: run apc/train-decay.sh
+Evaluate APC loss: run apc/util/avg-loss.py
+
+# FRMCLS 
+Training configurations: frmcls/exp/frmcls-layer3/train.conf
+Testing configurations: frmcls/exp/frmcls-layer3/test.conf
+
+Train FRMCLS: run frmcls/train.sh
+Validate FRMCLS: run frmcls/test.sh
+Validate FRMCLS with random noise: run frmcls/test-noise.sh
+Evaluate PER: run frmcls/eval.sh
+Confusion matrix: run frmcls/util/confusion-matrix.py
+Differentiated confusion matrix : run frmcls/util/confusion-matrix-difference.py
+
+# SPKID
+Training configurations: spkid/exp/spkid-layer3/train.conf
+Testing configurations: spkid/exp/spkid-layer3/test.conf
+
+Train SPKID: run spkid/train-probe.sh
+Validate SPKID and evaluate EER: spkid/test-probe.sh
+
+
