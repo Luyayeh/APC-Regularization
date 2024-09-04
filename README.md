@@ -21,7 +21,7 @@ Voxceleb1: spkid-train, spkid-dev
 # Preprocessing
 Generate log Mel spectrograms by Kaldi. 
 
-The dataset were all preprocessed and granded by Dr. Han Tang, so please reach him out for preprosedd dataset. 
+The dataset were preprocessed and granded by Dr. Han Tang. 
 # APC 
 Training configurations: apc/exp/apc-layer3/train.conf
 
