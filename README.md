@@ -22,7 +22,8 @@ Voxceleb1: spkid-train, spkid-dev
 Generate log Mel spectrograms by Kaldi. 
 
 The dataset were preprocessed and granded by Dr. Han Tang. 
-# APC 
+# Training
+## APC 
 Training configurations: apc/exp/apc-layer3/train.conf
 
 Testing configurations: apc/exp/apc-layer3/test.conf
@@ -46,7 +47,7 @@ Test APC: run apc/test.sh
 
 Evaluate APC loss: run apc/util/avg-loss.py
 
-# FRMCLS 
+## FRMCLS 
 Training configurations: frmcls/exp/frmcls-layer3/train.conf
 
 Testing configurations: frmcls/exp/frmcls-layer3/test.conf
@@ -63,7 +64,7 @@ Confusion matrix: run frmcls/util/confusion-matrix.py
 
 Differentiated confusion matrix : run frmcls/util/confusion-matrix-difference.py
 
-# SPKID
+## SPKID
 Training configurations: spkid/exp/spkid-layer3/train.conf
 
 Testing configurations: spkid/exp/spkid-layer3/test.conf
