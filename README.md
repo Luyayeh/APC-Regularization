@@ -48,6 +48,24 @@ Phone Classification: Evaluated using Phone Error Rate (PER) on the WSJ dataset
 
 Speaker Identification: Evaluated using Equal Error Rate (EER) on the VoxCeleb1 dataset
 
+# Results
+
+APC Training Loss: 
+
+Regularization increased the training loss but led to better generalization. The SNR30 model closely matched the baseline, confirming that mild noise does not significantly affect training.
+
+Phone Classification:
+
+AWGN: Improved robustness to noisy inputs, with the SNR10 model consistently outperforming the baseline.
+
+Dropout: Enhanced generalization, with the Dropout0.5 model achieving the best performance.
+
+Combined: The SNR10-Dropout0.5 model balanced improvements in performance across layers.
+
+Speaker Identification:
+
+The speaker identification task did not show significant improvements with regularization, indicating that the benefits of regularization are more pronounced in frame-level tasks such as phone classification.
+
 # APC 
 Training configurations: apc/exp/apc-layer3/train.conf
 
