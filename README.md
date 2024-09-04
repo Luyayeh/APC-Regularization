@@ -22,8 +22,33 @@ Voxceleb1: spkid-train, spkid-dev
 Generate log Mel spectrograms by Kaldi. 
 
 The dataset were preprocessed and granded by Dr. Han Tang. 
-# Training
-## APC 
+
+#  Methodology
+Employed an APC model with a 3-layer LSTM architecture, trained on the Librispeech 360-hour dataset. The key regularization techniques used were:
+
+AWGN: Gaussian noise was added to the input features during training to simulate real-world noise and improve the model's robustness
+
+Dropout: Applied between LSTM layers to prevent overfitting, with dropout rates set at 0.2 and 0.5.
+
+# Experiments
+
+The APC model was trained for 20 epochs, followed by 5 epochs with a learning rate decay. Model variants are:
+
+Baseline: No regularization
+
+AWGN: Gaussian noise with SNR10 and SNR30
+
+Dropout: Dropout rates of 0.2 and 0.5
+
+Combined: Both AWGN and dropout
+
+Evaluated employed methodology via two downstream tasks:
+
+Phone Classification: Evaluated using Phone Error Rate (PER) on the WSJ dataset
+
+Speaker Identification: Evaluated using Equal Error Rate (EER) on the VoxCeleb1 dataset
+
+# APC 
 Training configurations: apc/exp/apc-layer3/train.conf
 
 Testing configurations: apc/exp/apc-layer3/test.conf
@@ -47,7 +72,7 @@ Test APC: run apc/test.sh
 
 Evaluate APC loss: run apc/util/avg-loss.py
 
-## FRMCLS 
+# FRMCLS 
 Training configurations: frmcls/exp/frmcls-layer3/train.conf
 
 Testing configurations: frmcls/exp/frmcls-layer3/test.conf
@@ -64,7 +89,7 @@ Confusion matrix: run frmcls/util/confusion-matrix.py
 
 Differentiated confusion matrix : run frmcls/util/confusion-matrix-difference.py
 
-## SPKID
+# SPKID
 Training configurations: spkid/exp/spkid-layer3/train.conf
 
 Testing configurations: spkid/exp/spkid-layer3/test.conf
@@ -72,5 +97,6 @@ Testing configurations: spkid/exp/spkid-layer3/test.conf
 Train SPKID: run spkid/train-probe.sh
 
 Validate SPKID and evaluate EER: spkid/test-probe.sh
+
 
 
